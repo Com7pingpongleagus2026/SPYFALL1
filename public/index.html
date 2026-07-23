@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spyfall Online v2</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- QR Code Library CDN (ใหม่ v2) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div id="particles"></div>
+
+    <!-- Main App Container -->
+    <div id="app">
+
+        <!-- Home Screen -->
+        <div id="screen-home" class="screen active">
+            <div class="logo-container">
+                <h1 class="logo">SPYFALL</h1>
+                <p class="logo-sub">ONLINE</p>
+                <p class="version-badge">v2.0</p>
+            </div>
+            <div class="home-actions glass-card">
+                <button id="btn-create" class="btn btn-primary btn-lg">
+                    <span class="btn-icon">🎮</span> Create Room
+                </button>
+                <div class="divider"><span>OR</span></div>
+                <div class="join-group">
+                    <input type="text" id="input-room-code" class="input-field" placeholder="Enter Room Code" maxlength="6">
+                    <button id="btn-join" class="btn btn-secondary btn-lg">
+                        <span class="btn-icon">🚪</span> Join Room
+                    </button>
+                </div>
+            </div>
+            <div class="home-footer">
+                <button id="btn-admin" class="btn btn-ghost btn-sm">⚙️ Admin Panel</button>
+            </div>
+        </div>
+
+        <!-- Create Room Screen -->
+        <div id="screen-create" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← Back</button>
+                <h2>Create Room</h2>
+            </div>
+            <div class="glass-card create-form">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="input-host-name" class="input-field" placeholder="Enter your name" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Max Players</label>
+                    <div class="range-container">
+                        <input type="range" id="range-players" min="3" max="20" value="6">
+                        <span id="val-players" class="range-value">6</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Time Limit</label>
+                    <div class="btn-group">
+                        <button class="btn btn-option" data-time="3">3 min</button>
+                        <button class="btn btn-option active" data-time="5">5 min</button>
+                        <button class="btn btn-option" data-time="8">8 min</button>
+                        <button class="btn btn-option" data-time="10">10 min</button>
+                        <button class="btn btn-option" data-time="15">15 min</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Number of Spies</label>
+                    <div class="btn-group">
+                        <button class="btn btn-option active" data-spy="1">1 Spy</button>
+                        <button class="btn btn-option" data-spy="2">2 Spies</button>
+                        <button class="btn btn-option" data-spy="random">Random</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Game Mode</label>
+                    <div class="btn-group mode-group">
+                        <button class="btn btn-option active" data-mode="normal">Normal</button>
+                        <button class="btn btn-option" data-mode="hard">Hard</button>
+                        <button class="btn btn-option" data-mode="blind">Blind Spy</button>
+                    </div>
+                </div>
+                <button id="btn-create-room" class="btn btn-primary btn-lg btn-full">Create Room 🎲</button>
+            </div>
+        </div>
+
+        <!-- Join Room Screen -->
+        <div id="screen-join" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← Back</button>
+                <h2>Join Room</h2>
+            </div>
+            <div class="glass-card">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="input-player-name" class="input-field" placeholder="Enter your name" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Room Code</label>
+                    <input type="text" id="input-join-code" class="input-field" placeholder="6-digit code" maxlength="6">
+                </div>
+                <button id="btn-join-room" class="btn btn-primary btn-lg btn-full">Join 🚀</button>
+            </div>
+        </div>
+
+        <!-- Lobby Screen -->
+        <div id="screen-lobby" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← Leave</button>
+                <h2>Lobby</h2>
+            </div>
+            <div class="lobby-info glass-card">
+                <div class="room-code-display">
+                    <span class="label">Room Code</span>
+                    <span id="display-room-code" class="code">------</span>
+                    <button id="btn-copy-code" class="btn btn-ghost btn-sm">📋 Copy</button>
+                </div>
+                <div id="qr-container" class="qr-container"></div>
+                <div class="room-settings-display">
+                    <span id="display-settings"></span>
+                </div>
+            </div>
+            <div class="players-list glass-card">
+                <h3>Players <span id="player-count">0/6</span></h3>
+                <div id="players-container"></div>
+            </div>
+            <div class="lobby-chat glass-card">
+                <h3>Chat</h3>
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input-group">
+                    <input type="text" id="input-chat" class="input-field" placeholder="Type a message...">
+                    <button id="btn-send-chat" class="btn btn-primary btn-sm">Send</button>
+                </div>
+            </div>
+            <div id="lobby-actions" class="lobby-actions">
+                <button id="btn-ready" class="btn btn-secondary btn-lg btn-full">Ready ✓</button>
+                <button id="btn-start-game" class="btn btn-primary btn-lg btn-full" style="display:none;">Start Game 🎯</button>
+                <!-- ปุ่ม Score ใหม่ v2 -->
+                <button id="btn-score" class="btn btn-ghost btn-lg btn-full neon-text">🏆 Scoreboard</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="screen-game" class="screen">
+            <div class="game-header">
+                <div id="game-timer" class="timer">05:00</div>
+                <div id="game-mode-badge" class="mode-badge"></div>
+            </div>
+            <div class="game-content">
+                <!-- Card Reveal -->
+                <div id="card-container" class="card-container">
+                    <div id="game-card" class="game-card" data-flipped="false">
+                        <div class="card-front">
+                            <div class="card-front-content">
+                                <span class="tap-text">TAP TO REVEAL</span>
+                                <span class="card-icon">🕵️</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div id="card-role-content" class="card-role-content">
+                                <!-- เนื้อหาจะถูกใส่จาก JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Random Event -->
+                <div id="random-event" class="random-event glass-card" style="display:none;">
+                    <span class="event-icon">⚡</span>
+                    <span id="event-text"></span>
+                </div>
+                <!-- Player List in Game -->
+                <div class="game-players glass-card">
+                    <h3>Players</h3>
+                    <div id="game-players-list"></div>
+                </div>
+                <!-- Locations List (ใหม่ v2) -->
+                <div id="locations-panel" class="locations-panel glass-card">
+                    <div class="locations-panel-header">
+                        <h3>📍 All Locations</h3>
+                        <button id="btn-toggle-locations" class="btn btn-ghost btn-sm">📍 Hide Locations</button>
+                    </div>
+                    <div id="locations-display" class="locations-display">
+                        <!-- รายชื่อสถานที่จะถูกใส่จาก JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voting Screen -->
+        <div id="screen-vote" class="screen">
+            <div class="screen-header">
+                <h2>⏰ Time's Up! Vote Now</h2>
+            </div>
+            <div class="glass-card vote-container">
+                <p class="vote-instruction">Who do you think is the Spy?</p>
+                <div id="vote-players" class="vote-players"></div>
+                <button id="btn-submit-vote" class="btn btn-primary btn-lg btn-full" disabled>Submit Vote 🗳️</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="screen-results" class="screen">
+            <div class="results-container glass-card">
+                <div id="results-animation" class="results-animation"></div>
+                <h2 id="results-title"></h2>
+                <p id="results-subtitle"></p>
+                <div id="results-details" class="results-details"></div>
+                <div id="vote-results" class="vote-results"></div>
+                <div class="results-actions">
+                    <button id="btn-play-again" class="btn btn-primary btn-lg">Play Again 🔄</button>
+                    <button id="btn-back-lobby" class="btn btn-secondary btn-lg">Back to Lobby</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Score Screen -->
+        <div id="screen-score" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="lobby">← Back</button>
+                <h2>Scoreboard 🏆</h2>
+            </div>
+            <div class="glass-card score-container">
+                <div id="score-list"></div>
+            </div>
+        </div>
+
+        <!-- Admin Screen -->
+        <div id="screen-admin" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← Back</button>
+                <h2>Admin Panel ⚙️</h2>
+            </div>
+            <div class="admin-container">
+                <div class="glass-card admin-section">
+                    <h3>Manage Locations</h3>
+                    <div class="admin-actions">
+                        <button id="btn-add-location" class="btn btn-primary">+ Add Location</button>
+                        <button id="btn-import-json" class="btn btn-secondary">📥 Import JSON</button>
+                        <button id="btn-export-json" class="btn btn-secondary">📤 Export JSON</button>
+                        <input type="file" id="file-import" accept=".json" style="display:none;">
+                    </div>
+                    <div id="locations-list" class="locations-list"></div>
+                </div>
+                <!-- Add/Edit Location Modal -->
+                <div id="modal-location" class="modal" style="display:none;">
+                    <div class="modal-content glass-card">
+                        <h3 id="modal-title">Add Location</h3>
+                        <div class="form-group">
+                            <label>Location Name</label>
+                            <input type="text" id="input-location-name" class="input-field" placeholder="e.g. Hospital">
+                        </div>
+                        <div class="form-group">
+                            <label>Roles (one per line, min 8)</label>
+                            <textarea id="input-roles" class="input-field textarea" placeholder="Doctor&#10;Nurse&#10;Patient..." rows="10"></textarea>
+                        </div>
+                        <div class="modal-actions">
+                            <button id="btn-save-location" class="btn btn-primary">Save</button>
+                            <button id="btn-cancel-location" class="btn btn-ghost">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="firebase.js"></script>
+    <script src="game.js"></script>
+    <script src="admin.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

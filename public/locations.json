@@ -1,0 +1,250 @@
+[
+  {
+    "name": "Hospital",
+    "roles": ["Doctor", "Nurse", "Surgeon", "Patient", "Pharmacist", "Janitor", "Receptionist", "Security Guard", "Therapist", "Visitor"]
+  },
+  {
+    "name": "Airport",
+    "roles": ["Pilot", "Flight Attendant", "Customs Officer", "Passenger", "Baggage Handler", "Air Traffic Controller", "Security Agent", "Shop Clerk", "Immigration Officer", "Cleaner"]
+  },
+  {
+    "name": "School",
+    "roles": ["Teacher", "Student", "Principal", "Janitor", "School Nurse", "Librarian", "Coach", "Counselor", "Cafeteria Worker", "Security Guard"]
+  },
+  {
+    "name": "Casino",
+    "roles": ["Dealer", "Gambler", "Pit Boss", "Security Guard", "Bartender", "Cashier", "Entertainer", "Waitress", "Surveillance Officer", "VIP Guest"]
+  },
+  {
+    "name": "Cinema",
+    "roles": ["Projectionist", "Ticket Seller", "Moviegoer", "Usher", "Snack Bar Worker", "Manager", "Film Critic", "Cleaner", "Security Guard", "Couple on Date"]
+  },
+  {
+    "name": "Prison",
+    "roles": ["Prisoner", "Warden", "Guard", "Visitor", "Lawyer", "Cook", "Doctor", "Chaplain", "New Inmate", "Undercover Agent"]
+  },
+  {
+    "name": "Cruise Ship",
+    "roles": ["Captain", "Passenger", "Chef", "Entertainer", "Lifeguard", "Bartender", "Cabin Steward", "Tour Guide", "Ship Doctor", "Engineer"]
+  },
+  {
+    "name": "Space Station",
+    "roles": ["Commander", "Astronaut", "Scientist", "Engineer", "Mission Control Operator", "Space Tourist", "Medical Officer", "Pilot", "Communications Officer", "Botanist"]
+  },
+  {
+    "name": "Military Base",
+    "roles": ["General", "Soldier", "Drill Sergeant", "Medic", "Sniper", "Cook", "Communications Officer", "Pilot", "Engineer", "Intelligence Officer"]
+  },
+  {
+    "name": "Restaurant",
+    "roles": ["Chef", "Waiter", "Customer", "Host", "Dishwasher", "Sommelier", "Food Critic", "Manager", "Busboy", "Bartender"]
+  },
+  {
+    "name": "Shopping Mall",
+    "roles": ["Shopper", "Security Guard", "Store Clerk", "Janitor", "Manager", "Food Court Worker", "Lost Child", "Delivery Person", "Window Shopper", "Pickpocket"]
+  },
+  {
+    "name": "Factory",
+    "roles": ["Factory Worker", "Foreman", "Engineer", "Quality Inspector", "Safety Officer", "Machine Operator", "Janitor", "Delivery Driver", "CEO", "Union Representative"]
+  },
+  {
+    "name": "Temple",
+    "roles": ["Monk", "Priest", "Worshipper", "Tourist", "Groundskeeper", "Bell Ringer", "Choir Singer", "Pilgrim", "Nun", "Donation Collector"]
+  },
+  {
+    "name": "Zoo",
+    "roles": ["Zookeeper", "Visitor", "Veterinarian", "Tour Guide", "Gift Shop Clerk", "Photographer", "Animal Trainer", "Ticket Seller", "Security Guard", "Janitor"]
+  },
+  {
+    "name": "Museum",
+    "roles": ["Curator", "Visitor", "Tour Guide", "Security Guard", "Art Thief", "Restorer", "Archaeologist", "Gift Shop Clerk", "Student on Field Trip", "Photographer"]
+  },
+  {
+    "name": "Beach",
+    "roles": ["Lifeguard", "Surfer", "Sunbather", "Ice Cream Vendor", "Beach Volleyball Player", "Fisherman", "Tourist", "Scuba Diver", "Sandcastle Builder", "Jet Ski Rider"]
+  },
+  {
+    "name": "Train",
+    "roles": ["Conductor", "Passenger", "Engineer", "Ticket Inspector", "Dining Car Waiter", "Sleeper Car Attendant", "Stowaway", "Detective", "Vendor", "Tourist"]
+  },
+  {
+    "name": "Submarine",
+    "roles": ["Captain", "Navigator", "Sonar Operator", "Engineer", "Cook", "Torpedo Officer", "Communications Officer", "Medic", "First Mate", "Diver"]
+  },
+  {
+    "name": "Wedding",
+    "roles": ["Bride", "Groom", "Best Man", "Bridesmaid", "Priest", "Photographer", "Wedding Planner", "Caterer", "DJ", "Flower Girl"]
+  },
+  {
+    "name": "Concert",
+    "roles": ["Lead Singer", "Guitarist", "Drummer", "Fan", "Sound Engineer", "Security Guard", "Roadie", "Manager", "Ticket Scalper", "Photographer"]
+  },
+  {
+    "name": "Library",
+    "roles": ["Librarian", "Student", "Author", "Book Thief", "Researcher", "Homeless Person", "Child", "IT Technician", "Archivist", "Reading Club Member"]
+  },
+  {
+    "name": "Police Station",
+    "roles": ["Detective", "Police Officer", "Suspect", "Lawyer", "Informant", "Desk Sergeant", "Forensic Analyst", "Victim", "Reporter", "Janitor"]
+  },
+  {
+    "name": "Fire Station",
+    "roles": ["Fire Chief", "Firefighter", "Paramedic", "Dispatcher", "Dalmatian Handler", "Mechanic", "Trainee", "Cook", "Inspector", "Volunteer"]
+  },
+  {
+    "name": "University",
+    "roles": ["Professor", "Student", "Dean", "Teaching Assistant", "Janitor", "Librarian", "Campus Security", "Freshman", "Researcher", "Exchange Student"]
+  },
+  {
+    "name": "Hotel",
+    "roles": ["Receptionist", "Guest", "Bellboy", "Housekeeper", "Manager", "Concierge", "Room Service Waiter", "Pool Attendant", "Chef", "Doorman"]
+  },
+  {
+    "name": "Bank",
+    "roles": ["Teller", "Manager", "Security Guard", "Customer", "Loan Officer", "Robber", "Accountant", "Financial Advisor", "Janitor", "Armored Truck Driver"]
+  },
+  {
+    "name": "Farm",
+    "roles": ["Farmer", "Farmhand", "Veterinarian", "Tractor Driver", "Crop Inspector", "Scarecrow Maker", "Beekeeper", "Milkmaid", "Harvester", "Market Seller"]
+  },
+  {
+    "name": "Circus",
+    "roles": ["Ringmaster", "Clown", "Acrobat", "Lion Tamer", "Magician", "Juggler", "Ticket Seller", "Audience Member", "Tightrope Walker", "Strongman"]
+  },
+  {
+    "name": "TV Studio",
+    "roles": ["News Anchor", "Cameraman", "Director", "Makeup Artist", "Sound Engineer", "Actor", "Producer", "Stagehand", "Script Writer", "Weather Presenter"]
+  },
+  {
+    "name": "Arcade",
+    "roles": ["Gamer", "Technician", "Prize Counter Clerk", "Manager", "Child", "Token Seller", "Competitive Player", "Birthday Party Kid", "Janitor", "Security Guard"]
+  },
+  {
+    "name": "Camping",
+    "roles": ["Camper", "Park Ranger", "Scout Leader", "Hiker", "Fisherman", "Wildlife Photographer", "Lost Tourist", "Camp Cook", "Storyteller", "Bear Expert"]
+  },
+  {
+    "name": "Coffee Shop",
+    "roles": ["Barista", "Customer", "Manager", "Freelancer", "Student", "Book Reader", "Delivery Driver", "Pastry Chef", "Wi-Fi Freeloader", "Date Couple"]
+  },
+  {
+    "name": "Bakery",
+    "roles": ["Baker", "Cashier", "Customer", "Pastry Chef", "Delivery Driver", "Health Inspector", "Cake Decorator", "Apprentice", "Owner", "Morning Regular"]
+  },
+  {
+    "name": "Night Club",
+    "roles": ["DJ", "Bouncer", "Bartender", "Dancer", "VIP Guest", "Promoter", "Coat Check Girl", "Drunk Patron", "Drug Dealer", "Undercover Cop"]
+  },
+  {
+    "name": "Laboratory",
+    "roles": ["Scientist", "Lab Assistant", "Professor", "Test Subject", "Safety Inspector", "PhD Student", "Robot", "Janitor", "Corporate Sponsor", "Intern"]
+  },
+  {
+    "name": "Embassy",
+    "roles": ["Ambassador", "Diplomat", "Security Guard", "Translator", "Visa Applicant", "Secretary", "Intelligence Agent", "Journalist", "Driver", "Protester"]
+  },
+  {
+    "name": "Theme Park",
+    "roles": ["Ride Operator", "Visitor", "Mascot", "Food Vendor", "Security Guard", "Lost Child", "Roller Coaster Engineer", "Photographer", "Street Performer", "Gift Shop Clerk"]
+  },
+  {
+    "name": "Aquarium",
+    "roles": ["Marine Biologist", "Visitor", "Diver", "Tour Guide", "Gift Shop Clerk", "Ticket Seller", "Janitor", "Fish Feeder", "Photographer", "School Teacher"]
+  },
+  {
+    "name": "Construction Site",
+    "roles": ["Foreman", "Crane Operator", "Architect", "Safety Inspector", "Bricklayer", "Electrician", "Plumber", "Surveyor", "Concrete Mixer", "Delivery Driver"]
+  },
+  {
+    "name": "Office",
+    "roles": ["CEO", "Secretary", "Intern", "IT Technician", "Accountant", "HR Manager", "Janitor", "Salesperson", "Receptionist", "Delivery Person"]
+  },
+  {
+    "name": "Warehouse",
+    "roles": ["Forklift Operator", "Inventory Manager", "Delivery Driver", "Security Guard", "Packer", "Supervisor", "Temp Worker", "Health Inspector", "Mechanic", "Janitor"]
+  },
+  {
+    "name": "Music Festival",
+    "roles": ["Headliner", "Festival Goer", "Security Guard", "Food Vendor", "Sound Engineer", "Volunteer", "Photographer", "Medic", "Stage Manager", "Lost Tourist"]
+  },
+  {
+    "name": "Game Convention",
+    "roles": ["Cosplayer", "Game Developer", "Attendee", "Booth Staff", "YouTuber", "Judge", "Vendor", "Security Guard", "Panel Speaker", "Volunteer"]
+  },
+  {
+    "name": "Castle",
+    "roles": ["King", "Queen", "Knight", "Jester", "Servant", "Blacksmith", "Archer", "Prisoner", "Cook", "Wizard"]
+  },
+  {
+    "name": "Pirate Ship",
+    "roles": ["Captain", "First Mate", "Navigator", "Cook", "Deckhand", "Prisoner", "Lookout", "Cannoneer", "Doctor", "Stowaway"]
+  },
+  {
+    "name": "Volcano Research Station",
+    "roles": ["Volcanologist", "Research Assistant", "Helicopter Pilot", "Equipment Technician", "Geologist", "Journalist", "Photographer", "Safety Officer", "Intern", "Local Guide"]
+  },
+  {
+    "name": "Luxury Yacht",
+    "roles": ["Owner", "Captain", "Chef", "Deckhand", "Guest", "Bartender", "Diver", "Stewardess", "DJ", "Bodyguard"]
+  },
+  {
+    "name": "Movie Set",
+    "roles": ["Director", "Actor", "Stunt Double", "Cameraman", "Makeup Artist", "Producer", "Extra", "Script Supervisor", "Sound Mixer", "Caterer"]
+  },
+  {
+    "name": "Data Center",
+    "roles": ["System Administrator", "Security Guard", "Network Engineer", "Cooling Technician", "CEO", "Intern", "Electrician", "Fire Safety Inspector", "Cable Installer", "Data Analyst"]
+  },
+  {
+    "name": "Tech Company",
+    "roles": ["CEO", "Software Engineer", "Product Manager", "UX Designer", "HR Representative", "Intern", "Data Scientist", "QA Tester", "Receptionist", "Janitor"]
+  },
+  {
+    "name": "Board Game Cafe",
+    "roles": ["Owner", "Barista", "Customer", "Game Master", "Competitive Player", "Couple on Date", "Birthday Group", "Game Collector", "Waitress", "Reviewer"]
+  },
+  {
+    "name": "Escape Room",
+    "roles": ["Game Master", "Participant", "First Timer", "Expert Player", "Scared Friend", "Birthday Person", "Receptionist", "Technician", "Designer", "Manager"]
+  },
+  {
+    "name": "Comic Convention",
+    "roles": ["Cosplayer", "Artist", "Writer", "Fan", "Vendor", "Celebrity Guest", "Photographer", "Security Guard", "Panel Host", "Volunteer"]
+  },
+  {
+    "name": "Marketplace",
+    "roles": ["Fruit Seller", "Customer", "Fishmonger", "Butcher", "Flower Vendor", "Pickpocket", "Street Food Vendor", "Health Inspector", "Delivery Boy", "Tourist"]
+  },
+  {
+    "name": "Harbor",
+    "roles": ["Dock Worker", "Ship Captain", "Fisherman", "Customs Officer", "Crane Operator", "Sailor", "Port Authority", "Smuggler", "Tourist", "Coast Guard"]
+  },
+  {
+    "name": "Mountain Cabin",
+    "roles": ["Hiker", "Cabin Owner", "Park Ranger", "Lost Traveler", "Hunter", "Photographer", "Survivalist", "Couple on Vacation", "Ghost Hunter", "Cook"]
+  },
+  {
+    "name": "Airport Lounge",
+    "roles": ["Business Traveler", "Flight Attendant Off-Duty", "Bartender", "Receptionist", "Celebrity", "Delayed Passenger", "Pilot", "Spa Therapist", "Chef", "Cleaner"]
+  },
+  {
+    "name": "Fashion Show",
+    "roles": ["Model", "Designer", "Photographer", "Makeup Artist", "Front Row Guest", "Backstage Manager", "Journalist", "Stylist", "Security Guard", "DJ"]
+  },
+  {
+    "name": "Art Gallery",
+    "roles": ["Artist", "Curator", "Visitor", "Art Critic", "Security Guard", "Art Thief", "Gallery Owner", "Student", "Photographer", "Auctioneer"]
+  },
+  {
+    "name": "Football Stadium",
+    "roles": ["Player", "Coach", "Referee", "Fan", "Commentator", "Hot Dog Vendor", "Security Guard", "Mascot", "Cheerleader", "Journalist"]
+  },
+  {
+    "name": "Haunted House",
+    "roles": ["Ghost", "Visitor", "Actor", "Manager", "Scared Teenager", "Makeup Artist", "Sound Technician", "Photographer", "Ticket Seller", "Paranormal Investigator"]
+  },
+  {
+    "name": "Ski Resort",
+    "roles": ["Ski Instructor", "Skier", "Snowboarder", "Lift Operator", "Lodge Manager", "Paramedic", "Hot Chocolate Vendor", "Tourist", "Equipment Rental Clerk", "Snow Groomer"]
+  }
+]
