@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spyfall Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles"></div>
+    <div id="app">
+
+        <!-- หน้าแรก -->
+        <div id="screen-home" class="screen active">
+            <div class="logo-container">
+                <h1 class="logo">SPYFALL</h1>
+                <p class="logo-sub">ONLINE</p>
+            </div>
+            <div class="home-actions glass-card">
+                <button id="btn-create" class="btn btn-primary btn-lg">🎮 สร้างห้อง</button>
+                <div class="divider"><span>หรือ</span></div>
+                <div class="join-group">
+                    <input type="text" id="input-room-code" class="input-field" placeholder="กรอกรหัสห้อง" maxlength="6" style="text-transform:uppercase;">
+                    <button id="btn-join" class="btn btn-secondary btn-lg" style="margin-top:10px;">🚪 เข้าร่วมห้อง</button>
+                </div>
+            </div>
+            <div class="home-footer">
+                <button id="btn-admin" class="btn btn-ghost btn-sm">⚙️ หน้าแอดมิน</button>
+                <div id="mode-indicator" class="mode-indicator"></div>
+            </div>
+        </div>
+
+        <!-- เลือกโหมด -->
+        <div id="screen-mode" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← กลับ</button>
+                <h2>เลือกโหมด</h2>
+            </div>
+            <div class="glass-card" style="text-align:center;">
+                <button id="btn-mode-local" class="btn btn-primary btn-lg" style="margin-bottom:16px;">
+                    📱 เล่นแบบ Local<br><small style="font-weight:400;opacity:0.8;">ส่งมือถือให้กันดูการ์ด</small>
+                </button>
+                <button id="btn-mode-online" class="btn btn-secondary btn-lg">
+                    🌐 เล่นแบบ Online<br><small style="font-weight:400;opacity:0.8;">แต่ละคนใช้เครื่องตัวเอง</small>
+                </button>
+                <p id="online-status" style="margin-top:12px;font-size:0.8rem;color:var(--text-muted);"></p>
+            </div>
+        </div>
+
+        <!-- สร้างห้อง -->
+        <div id="screen-create" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← กลับ</button>
+                <h2>สร้างห้อง</h2>
+            </div>
+            <div class="glass-card create-form">
+                <div class="form-group">
+                    <label>ชื่อของคุณ</label>
+                    <input type="text" id="input-host-name" class="input-field" placeholder="กรอกชื่อของคุณ" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>ผู้เล่นสูงสุด</label>
+                    <div class="range-container">
+                        <input type="range" id="range-players" min="3" max="20" value="6">
+                        <span id="val-players" class="range-value">6</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>กำหนดเวลา</label>
+                    <div class="btn-group">
+                        <button class="btn btn-option" data-time="3">3 นาที</button>
+                        <button class="btn btn-option active" data-time="5">5 นาที</button>
+                        <button class="btn btn-option" data-time="8">8 นาที</button>
+                        <button class="btn btn-option" data-time="10">10 นาที</button>
+                        <button class="btn btn-option" data-time="15">15 นาที</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>จำนวนสายลับ</label>
+                    <div class="btn-group">
+                        <button class="btn btn-option active" data-spy="1">1 คน</button>
+                        <button class="btn btn-option" data-spy="2">2 คน</button>
+                        <button class="btn btn-option" data-spy="random">สุ่ม</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>โหมดเกม</label>
+                    <div class="btn-group mode-group">
+                        <button class="btn btn-option active" data-mode="normal">ปกติ</button>
+                        <button class="btn btn-option" data-mode="hard">ยาก</button>
+                        <button class="btn btn-option" data-mode="blind">สายลับตาบอด</button>
+                    </div>
+                </div>
+                <button id="btn-create-room" class="btn btn-primary btn-lg btn-full">สร้างห้อง 🎲</button>
+            </div>
+        </div>
+
+        <!-- ห้องรอ (Online) - สำหรับคนที่ Join -->
+        <div id="screen-join" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← กลับ</button>
+                <h2>เข้าร่วมห้อง</h2>
+            </div>
+            <div class="glass-card">
+                <div class="form-group">
+                    <label>ชื่อของคุณ</label>
+                    <input type="text" id="input-join-name" class="input-field" placeholder="กรอกชื่อของคุณ" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>รหัสห้อง</label>
+                    <input type="text" id="input-join-code" class="input-field" placeholder="กรอกรหัส 6 ตัว" maxlength="6" style="text-transform:uppercase;">
+                </div>
+                <button id="btn-join-room" class="btn btn-primary btn-lg btn-full">เข้าร่วม 🚀</button>
+            </div>
+        </div>
+
+        <!-- ล็อบบี้ -->
+        <div id="screen-lobby" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← ออกจากห้อง</button>
+                <h2>ล็อบบี้</h2>
+            </div>
+            <div class="lobby-info glass-card">
+                <div class="room-code-display">
+                    <span class="label">รหัสห้อง</span>
+                    <span id="display-room-code" class="code">------</span>
+                    <button id="btn-copy-code" class="btn btn-ghost btn-sm">📋 คัดลอก</button>
+                </div>
+                <div class="room-settings-display">
+                    <span id="display-settings"></span>
+                </div>
+                <div id="display-mode-badge" style="margin-top:8px;"></div>
+            </div>
+            <div class="players-list glass-card">
+                <h3>ผู้เล่น <span id="player-count">0/6</span></h3>
+                <div id="players-container"></div>
+                <!-- เพิ่มผู้เล่น (Local mode) -->
+                <div id="add-player-section" class="add-player-group" style="margin-top:12px;">
+                    <input type="text" id="input-add-player" class="input-field" placeholder="ชื่อผู้เล่นใหม่" maxlength="20">
+                    <button id="btn-add-player" class="btn btn-secondary btn-sm" style="margin-top:8px;">+ เพิ่มผู้เล่น</button>
+                </div>
+                <!-- รอผู้เล่น (Online mode) -->
+                <div id="waiting-players-section" style="display:none;margin-top:12px;text-align:center;color:var(--text-muted);font-size:0.85rem;">
+                    ⏳ รอผู้เล่นเข้าร่วม... แชร์รหัสห้องให้เพื่อน
+                </div>
+            </div>
+            <div id="lobby-actions" class="lobby-actions">
+                <button id="btn-start-game" class="btn btn-primary btn-lg btn-full">เริ่มเกม 🎯</button>
+            </div>
+        </div>
+
+        <!-- รอเกมเริ่ม (Online - ฝั่งผู้เล่น) -->
+        <div id="screen-waiting" class="screen">
+            <div class="glass-card" style="text-align:center;">
+                <div style="font-size:3rem;margin-bottom:16px;">⏳</div>
+                <h2>เข้าห้องสำเร็จ!</h2>
+                <p style="color:var(--text-secondary);margin-top:8px;">รอ Host เริ่มเกม...</p>
+                <div id="waiting-players-list" style="margin-top:16px;"></div>
+            </div>
+        </div>
+
+        <!-- เกม -->
+        <div id="screen-game" class="screen">
+            <div class="game-header">
+                <div id="game-timer" class="timer">05:00</div>
+                <div id="game-mode-badge" class="mode-badge"></div>
+            </div>
+            <div class="game-content">
+                <div id="current-player-display" class="glass-card" style="text-align:center;margin-bottom:16px;">
+                    <p style="color:var(--text-secondary);font-size:0.85rem;">ตาของ</p>
+                    <h3 id="current-player-name" style="font-size:1.3rem;"></h3>
+                    <p style="color:var(--text-muted);font-size:0.8rem;margin-top:4px;">ส่งมือถือให้ผู้เล่นคนนี้</p>
+                </div>
+                <div id="card-container" class="card-container">
+                    <div id="game-card" class="game-card" data-flipped="false">
+                        <div class="card-front">
+                            <div class="card-front-content">
+                                <span class="tap-text">แตะเพื่อเปิดการ์ด</span>
+                                <span class="card-icon">🕵️</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div id="card-role-content" class="card-role-content"></div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-next-player" class="btn btn-secondary btn-lg btn-full" style="display:none;margin-top:16px;">ผู้เล่นถัดไป →</button>
+                <button id="btn-start-timer" class="btn btn-primary btn-lg btn-full" style="display:none;margin-top:16px;">ทุกคนดูแล้ว — เริ่มจับเวลา ⏱️</button>
+                <div id="game-players-section" class="game-players glass-card" style="display:none;margin-top:16px;">
+                    <h3>ผู้เล่น</h3>
+                    <div id="game-players-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- โหวต -->
+        <div id="screen-vote" class="screen">
+            <div class="screen-header">
+                <h2>⏰ หมดเวลา! โหวตเลย</h2>
+            </div>
+            <div class="glass-card vote-container">
+                <p class="vote-instruction">คุณคิดว่าใครเป็นสายลับ?</p>
+                <div id="vote-players" class="vote-players"></div>
+                <button id="btn-submit-vote" class="btn btn-primary btn-lg btn-full" disabled>ยืนยันโหวต 🗳️</button>
+            </div>
+        </div>
+
+        <!-- ผลลัพธ์ -->
+        <div id="screen-results" class="screen">
+            <div class="results-container glass-card">
+                <div id="results-animation" class="results-animation"></div>
+                <h2 id="results-title"></h2>
+                <p id="results-subtitle"></p>
+                <div id="results-details" class="results-details"></div>
+                <div class="results-actions">
+                    <button id="btn-play-again" class="btn btn-primary btn-lg">เล่นอีกครั้ง 🔄</button>
+                    <button id="btn-back-lobby" class="btn btn-secondary btn-lg">กลับล็อบบี้</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Login -->
+        <div id="screen-admin-login" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← กลับ</button>
+                <h2>🔒 หน้าแอดมิน</h2>
+            </div>
+            <div class="glass-card" style="text-align:center;">
+                <p style="color:var(--text-secondary);margin-bottom:16px;">กรอกรหัสผ่านเพื่อเข้าหน้าแอดมิน</p>
+                <input type="password" id="input-admin-password" class="input-field" placeholder="รหัสผ่าน" style="margin-bottom:12px;">
+                <button id="btn-admin-login" class="btn btn-primary btn-lg btn-full">เข้าสู่ระบบ 🔓</button>
+            </div>
+        </div>
+
+        <!-- Admin -->
+        <div id="screen-admin" class="screen">
+            <div class="screen-header">
+                <button class="btn btn-ghost btn-back" data-back="home">← กลับ</button>
+                <h2>หน้าแอดมิน ⚙️</h2>
+            </div>
+            <div class="admin-container">
+                <div class="glass-card admin-section">
+                    <h3>จัดการสถานที่ <span id="loc-count" style="color:var(--text-muted);font-size:0.8rem;"></span></h3>
+                    <div class="admin-actions">
+                        <button id="btn-add-location" class="btn btn-primary btn-sm">+ เพิ่มสถานที่</button>
+                        <button id="btn-import-json" class="btn btn-secondary btn-sm">📥 นำเข้า</button>
+                        <button id="btn-export-json" class="btn btn-secondary btn-sm">📤 ส่งออก</button>
+                        <input type="file" id="file-import" accept=".json" style="display:none;">
+                    </div>
+                    <div id="locations-list" class="locations-list"></div>
+                </div>
+                <div id="modal-location" class="modal" style="display:none;">
+                    <div class="modal-content glass-card">
+                        <h3 id="modal-title">เพิ่มสถานที่</h3>
+                        <div class="form-group">
+                            <label>ชื่อสถานที่</label>
+                            <input type="text" id="input-location-name" class="input-field" placeholder="เช่น โรงพยาบาล">
+                        </div>
+                        <div class="form-group">
+                            <label>บทบาท (บรรทัดละ 1 อย่างน้อย 8)</label>
+                            <textarea id="input-roles" class="input-field textarea" placeholder="หมอ&#10;พยาบาล&#10;คนไข้..." rows="10"></textarea>
+                        </div>
+                        <div class="modal-actions">
+                            <button id="btn-save-location" class="btn btn-primary">บันทึก</button>
+                            <button id="btn-cancel-location" class="btn btn-ghost">ยกเลิก</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Firebase (ถ้าต้องการ Online) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

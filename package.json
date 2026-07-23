@@ -1,0 +1,14 @@
+{
+  "name": "spyfall-online",
+  "version": "2.0.0",
+  "description": "Spyfall Online - \u0e40\u0e01\u0e21\u0e2b\u0e32\u0e2a\u0e32\u0e22\u0e25\u0e31\u0e1a",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'No build needed'"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "license": "MIT"
+}
