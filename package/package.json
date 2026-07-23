@@ -1,0 +1,20 @@
+{
+  "name": "spyfall-online",
+  "version": "2.0.0",
+  "description": "Spyfall Online - Multiplayer party game with Firebase Real-time",
+  "main": "public/index.html",
+  "scripts": {
+    "deploy": "firebase deploy",
+    "serve": "firebase emulators:start",
+    "start": "python -m http.server 8080 --directory public"
+  },
+  "keywords": [
+    "spyfall",
+    "multiplayer",
+    "party-game",
+    "firebase",
+    "real-time"
+  ],
+  "author": "",
+  "license": "MIT"
+}
